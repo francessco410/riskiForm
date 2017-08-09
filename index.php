@@ -18,64 +18,64 @@ and open the template in the editor.
     </head>
     <body>
         <div class="wrapper" style="padding: 10rem">
-            <form data-toggle="validator" role="form" id="riskiForm">
+            <form data-toggle="validator" role="form" id="riskiForm" method="post">
                 <div class="form-group">
                   <label for="inputName" class="control-label">First name</label>
-                  <input type="text" class="form-control" id="inputName" placeholder="First name" required>
+                  <input name="name" type="text" class="form-control" id="inputName" placeholder="First name" required>
                 </div>
                 <div class="form-group">
                   <label for="exampleInputPassword1">Last name</label>
-                  <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Last name">
+                  <input name="surname" type="text" class="form-control" id="exampleInputPassword1" placeholder="Last name" required>
                 </div>
                 <div class="form-group">
                   <label for="exampleInputPassword1">Email</label>
-                  <input type="email" class="form-control" id="exampleInputPassword1" placeholder="Email">
+                  <input name="email" type="email" class="form-control" id="exampleInputPassword1" placeholder="Email">
                   <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                 </div>
                 <fieldset class="form-group">
                   <legend>Sex</legend>
                   <div class="form-check">
                     <label class="form-check-label">
-                      <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+                      <input type="radio" class="form-check-input" name="sex" id="optionsRadios1" value="Male" checked>
                       Male
                     </label>
                   </div>
                   <div class="form-check">
                   <label class="form-check-label">
-                      <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="option2">
+                      <input type="radio" class="form-check-input" name="sex" id="optionsRadios2" value="Female">
                       Female
                     </label>
                   </div>
                 </fieldset>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Country</label>
-                  <input type="text" class="form-control" id="exampleInputEmail1">
+                  <input name="country" type="text" class="form-control" id="exampleInputEmail1">
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Study Course</label>
-                  <input type="text" class="form-control" id="exampleInputEmail1">
+                  <input name="course" type="text" class="form-control" id="exampleInputEmail1">
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Home University</label>
-                  <input type="text" class="form-control" id="exampleInputEmail1">
+                  <input name="home_univeristy" type="text" class="form-control" id="exampleInputEmail1">
                 </div>
                 <div class="form-group ">
                 <div class="form-group">
                   <label for="exampleInputEmail1">When do you plan to arrive in Braganca?</label>
                    <i class="fa fa-calendar"></i>
-                  <input class="form-control" id="date" name="date" placeholder="MM/DD/YYYY" type="text"/>
+                  <input class="form-control" id="date" placeholder="MM/DD/YYYY" type="text"/>
                 </div>
                 <fieldset class="form-group">
                   <legend>Type of room you want to reserve </legend>
                   <div class="form-check">
                     <label class="form-check-label">
-                      <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+                      <input type="radio" class="form-check-input" name="room_type" id="optionsRadios1" value="1" checked>
                       Single
                     </label>
                   </div>
                   <div class="form-check">
                   <label class="form-check-label">
-                      <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="option2">
+                      <input type="radio" class="form-check-input" name="room_type" id="optionsRadios2" value="2">
                       Double
                     </label>
                   </div>
@@ -84,13 +84,13 @@ and open the template in the editor.
                   <legend>Would you like to reserve utility kit?</legend>
                   <div class="form-check">
                     <label class="form-check-label">
-                      <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+                      <input type="radio" class="form-check-input" name="kit" id="optionsRadios1" value="1" checked>
                       Yes
                     </label>
                   </div>
                   <div class="form-check">
                   <label class="form-check-label">
-                      <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="option2">
+                      <input type="radio" class="form-check-input" name="kit" id="optionsRadios2" value="0">
                       No
                     </label>
                   </div>
@@ -99,13 +99,13 @@ and open the template in the editor.
                   <legend>Are you a smoker?</legend>
                   <div class="form-check">
                     <label class="form-check-label">
-                      <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+                      <input type="radio" class="form-check-input" name="smoker" id="optionsRadios1" value="1" checked>
                       Yes
                     </label>
                   </div>
                   <div class="form-check">
                   <label class="form-check-label">
-                      <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="option2">
+                      <input type="radio" class="form-check-input" name="smoker" id="optionsRadios2" value="0">
                       No
                     </label>
                   </div>
@@ -118,15 +118,23 @@ and open the template in the editor.
              
                 <div class="form-group">
                   <label for="exampleTextarea">Comments</label>
-                  <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
+                  <textarea name="comments" class="form-control" id="exampleTextarea" rows="3"></textarea>
                 </div>
 
-                <button type="submit" class="btn btn-primary">Submit</button>
-          </form>       
+                <button value="Submit" type="submit" class="btn btn-primary" name="riski-form-submit">Submit</button>
+          </form>
         </div>
     </body>
 </html>
 
+<?php
+if(isset($_POST)){
+    echo '<pre>';
+    print_r($_POST);
+    echo '</pre>';
+    die();
+}
+?>
 
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
