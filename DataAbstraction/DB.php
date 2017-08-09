@@ -14,8 +14,8 @@ class DB{
 
     private function __construct(){
         try{
-            $this->conn = new PDO("mysql:host=localhost;port=3306;dbname=lookdb;charset=UTF8",
-                                  "foodlooker", "foodlooker");       
+            $this->conn = new PDO("mysql:127.0.0.1;port=8889;dbname=riski_front;charset=UTF8",
+                                  "root", "root");       
             $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
         }catch(PDOException $e){
             echo $e ->getMessage();
@@ -30,7 +30,7 @@ class DB{
         return(self::$instance);  
     }
     
-    public function query($query, $params = []){
+    public function query($query, $params){
         $statement = $this->conn->prepare($query);
         $statement->execute($params);
         return($statement);

@@ -63,7 +63,7 @@ and open the template in the editor.
                 <div class="form-group">
                   <label for="exampleInputEmail1">When do you plan to arrive in Braganca?</label>
                    <i class="fa fa-calendar"></i>
-                  <input class="form-control" id="date" placeholder="MM/DD/YYYY" type="text"/>
+                  <input name="date" class="form-control" id="date" placeholder="MM/DD/YYYY" type="text"/>
                 </div>
                 <fieldset class="form-group">
                   <legend>Type of room you want to reserve </legend>
@@ -127,14 +127,6 @@ and open the template in the editor.
     </body>
 </html>
 
-<?php
-if(isset($_POST)){
-    echo '<pre>';
-    print_r($_POST);
-    echo '</pre>';
-    die();
-}
-?>
 
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
