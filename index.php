@@ -11,14 +11,17 @@ and open the template in the editor.
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+        <script src="validator.js" type="text/javascript"></script>
+        <script src="validator.min.js" type="text/javascript"></script>
         <title></title>
     </head>
     <body>
         <div class="wrapper" style="padding: 10rem">
-            <form>
+            <form data-toggle="validator" role="form" id="riskiForm">
                 <div class="form-group">
-                  <label for="exampleInputEmail1">First name</label>
-                  <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="First name">
+                  <label for="inputName" class="control-label">First name</label>
+                  <input type="text" class="form-control" id="inputName" placeholder="First name" required>
                 </div>
                 <div class="form-group">
                   <label for="exampleInputPassword1">Last name</label>
@@ -107,37 +110,26 @@ and open the template in the editor.
                     </label>
                   </div>
                 </fieldset>
-                    
+                <div class="form-group">
+                  <label for="form-check-label label-primary">Your ID</label>
+                  <input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
+                  <small id="fileHelp" class="form-text text-muted">Upload a copy of your passport or National ID if you are European </small>
+                </div> 
              
                 <div class="form-group">
-                  <label for="exampleTextarea">Example textarea</label>
+                  <label for="exampleTextarea">Comments</label>
                   <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
                 </div>
-                <div class="form-group">
-                  <label for="exampleInputFile">File input</label>
-                  <input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
-                  <small id="fileHelp" class="form-text text-muted">This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.</small>
-                </div>
-                <div class="form-check">
-                  <label class="form-check-label">
-                    <input type="checkbox" class="form-check-input">
-                    Check me out
-                  </label>
-                </div>
+
                 <button type="submit" class="btn btn-primary">Submit</button>
           </form>       
         </div>
     </body>
 </html>
 
-<!-- Extra JavaScript/CSS added manually in "Settings" tab -->
-<!-- Include jQuery -->
+
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-
-<!-- Include Date Range Picker -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
-
 <script>
 	$(document).ready(function(){
 		var date_input=$('input[name="date"]'); //our date input has the name "date"
