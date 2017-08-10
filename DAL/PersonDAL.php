@@ -1,5 +1,5 @@
 <?php
-
+require_once dirname(__FILE__).'/../DataAbstraction/DB.php';
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -26,7 +26,10 @@ class PersonDAL {
         $params[':photo'] = $e->photo;
         
         $res = $db -> query($query, $params);
+        if($res){
+            return $db->lastInsertId();
+        }
         
-        return($res);
+        return(FALSE);
     }
 }

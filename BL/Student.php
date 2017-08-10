@@ -22,7 +22,7 @@ class Student {
     public $comment;
     public $date;
     public $validated;
-    public $person_id;
+    public $person_booking_id;
 
 
     public function save(){
@@ -32,6 +32,16 @@ class Student {
     public function validation(){
         $errors = array();
         
+        
+        $errors[] = isset($this->course) ? 0 : 'course is not set';
+        $errors[] = isset($this->home_university) ? 0 : 'home_university is not set';
+        $errors[] = isset($this->arrival_date) ? 0 : 'arrival_date is not set';
+        $errors[] = isset($this->months) ? 0 : 'months is not set';
+        $errors[] = isset($this->room_type) ? 0 : 'room_type is not set';
+        $errors[] = isset($this->kit) ? 0 : 'kit is not set';
+        $errors[] = isset($this->comment) ? 0 : 'comment is not set';
+        $errors[] = isset($this->date) ? 0 : 'date is not set';
+        $errors[] = isset($this->validated) ? 0 : 'validated is not set';
         $errors[] = strlen($this->course)>45 ? 'Course length over max limit('.strlen($this->course).')' : 0;
         $errors[] = strlen($this->home_university)>45 ? 'Home_university length over max limit('.strlen($this->home_university).')' : 0;
         $errors[] = strlen($this->arrival_date)>10 ? 'Arrival_date length over max limit('.strlen($this->arrival_date).')' : 0;
@@ -43,7 +53,7 @@ class Student {
         
 
         foreach ($errors as $error){
-            if($error != 0){
+            if($error !== 0){
                 return $errors;
             }
         }

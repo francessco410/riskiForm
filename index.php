@@ -6,8 +6,28 @@ and open the template in the editor.
 -->
 <?php
     require_once dirname(__FILE__).'/Controllers/formController.php';
+    require_once dirname(__FILE__).'/captcha.php';
+    
+    $secret = "6Lf2cywUAAAAAIW4_0Z4utcqE8GuSLTwuMQsTbGY";
+    $resp = NULL;
+    $reCaptcha = new ReCaptcha($secret);
+    
+    if (isset($_POST["g-recaptcha-response"])) {
+        $resp = $reCaptcha->verifyResponse(
+            $_SERVER["REMOTE_ADDR"],
+            $_POST["g-recaptcha-response"]
+        );
+    }
+    
+    if ($resp != null && $resp->success) {
+        echo "You got it!";
+    }
+    
     if(isset($_POST['riski-form-submit'])){
         $validation = formController::valid();
+        
+        unset($_POST);
+        unset($_REQUEST);
     }
 ?>
 
@@ -23,6 +43,7 @@ and open the template in the editor.
         <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
         <script src="validator.js" type="text/javascript"></script>
         <script src="validator.min.js" type="text/javascript"></script>
+        <script src='https://www.google.com/recaptcha/api.js'></script>
         <title></title>
     </head>
     <body>
@@ -77,7 +98,7 @@ and open the template in the editor.
                 <div class="form-group">
                   <label for="exampleInputEmail1">When do you plan to arrive in Braganca?</label>
                    <i class="fa fa-calendar"></i>
-                  <input class="form-control" id="date" name="date" placeholder="MM/DD/YYYY" minlength="10" type="text">
+                  <input class="form-control" id="date" name="date" placeholder="MM/DD/YYYY"  pattern=".{10}" minlength="10" type="text">
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">How many months would you stay in Braganca?</label>
@@ -138,7 +159,7 @@ and open the template in the editor.
                   <label for="exampleTextarea">Comment</label>
                   <textarea name="comment" class="form-control" id="exampleTextarea" maxlength="255" rows="3"></textarea>
                 </div>
-
+                <div class="g-recaptcha" data-sitekey="6Lf2cywUAAAAAHVilgdeRjs8Hs73NjhSXU2cgZXu"></div>
                 <button value="Submit" type="submit" class="btn btn-primary" name="riski-form-submit">Submit</button>
           </form>
         </div>
