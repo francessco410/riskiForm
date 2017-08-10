@@ -15,7 +15,8 @@ class DB{
     private function __construct(){
         try{
             $this->conn = new PDO("mysql:127.0.0.1;port=8889;dbname=riski_front;charset=UTF8",
-                                  "root", "root");       
+                                  "root", "root");
+            
             $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
         }catch(PDOException $e){
             echo $e ->getMessage();

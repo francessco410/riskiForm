@@ -15,7 +15,7 @@ class StudentDAL {
     
     public static function save($e){
         $db = DB::getDB();
-        $query = "INSERT INTO student_booking (course,home_univeristy,months,room_type,kit,comment,date) VALUES(:course,:home_univeristy,:months,:room_type,:kit,:comment,:date)";
+        $query = "INSERT INTO student_booking (course,home_univeristy,months,room_type,kit,comment,date) VALUES(:course,:home_univeristy,:months,:room_type,:kit,:comment,:date,:validated)";
         
         $params = array();
         $params[':course'] = $e->course;
@@ -25,6 +25,7 @@ class StudentDAL {
         $params[':kit'] = $e->kit;
         $params[':comment'] = $e->comment;
         $params[':date'] = $e->date;
+        $params[':validated'] = $e->validated;
         
         $res = $db -> query($query, $params);
         

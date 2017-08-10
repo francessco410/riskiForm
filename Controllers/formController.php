@@ -21,6 +21,8 @@ class formController {
             $person->sex = htmlspecialchars($_POST['sex']);
             $person->country = htmlspecialchars($_POST['country']);
             $person->smoker = htmlspecialchars($_POST['smoker']);
+            
+            
             $person->photo = '';
 
             $student->course = htmlspecialchars($_POST['course']);
@@ -31,14 +33,20 @@ class formController {
             $student->kit = htmlspecialchars($_POST['kit']);
             $student->date = date('y-m-d');
             $student->comment = htmlspecialchars($_POST['comment']);
+            $student->validated = 0;
         }
-        echo '<pre>';
-        print_r($person);
-        echo '</pre>';
-        die();
         
+        $flag_person = $person->validation();
+        $flag_student = $student->validation();
         
-        
+        if($flag_person != 0 && $flag_student != 0){
+            
+        }else{
+            $person->save();
+            $student->person_id = $person->id;
+            $student->save();
+        }
+
         $mail = new PHPMailer;
 
         //$mail->SMTPDebug = 3;                               // Enable verbose debug output

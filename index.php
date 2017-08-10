@@ -5,8 +5,10 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <?php
-    //require_once dirname(__FILE__).'/Controllers/formController.php';
-    //$validation = formController::valid();
+    require_once dirname(__FILE__).'/Controllers/formController.php';
+    if(isset($_POST['riski-form-submit'])){
+        $validation = formController::valid();
+    }
 ?>
 
 <html>
@@ -29,7 +31,7 @@ and open the template in the editor.
         <div class="wrapper">
 
             <h1 id="title">room reservation form</h1>
-            <h2 id="subtitle">Please fill in the form below to book room with us. Be advised, reservation is confirmed ONLY after we reply your reservation request.</h2>
+            <h2 id="subtitle">Please fill in the form below to book room with us, before that read carefuly <a href="http://www.erasmus.embraganca.info/procedureEN.php">this article</a>. Be advised, reservation is confirmed ONLY after we reply your reservation request.</h2>
             <form enctype="multipart/form-data" data-toggle="validator" role="form" id="riskiForm" method="post">
                 <div class="form-group">
                   <label for="inputName" class="control-label" >First name</label>
@@ -158,9 +160,3 @@ and open the template in the editor.
         })
     })
 </script>
-
-<?php
-echo '<pre>';
-print_r($_POST);
-echo '</pre>';
-die();
