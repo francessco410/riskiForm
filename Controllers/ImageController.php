@@ -37,8 +37,8 @@ class ImageController {
         $error=array();
         $valid=true;
         $target_dir = dirname(__FILE__)."/../";
-        $target_filetype = "upload/scans/".pathinfo($_FILES["id-photo"]["name"], PATHINFO_EXTENSION);
-        $target_file = (substr(htmlspecialchars($_POST['name']),0,2).".".substr(htmlspecialchars($_POST['surname']),0,20). date("d-m-Y").".".($target_filetype));
+        $target_filetype = pathinfo($_FILES["id-photo"]["name"], PATHINFO_EXTENSION);
+        $target_file = "upload/scans/".(substr(htmlspecialchars($_POST['name']),0,2).".".substr(htmlspecialchars($_POST['surname']),0,20). date("Y-m-d_g:i").".".($target_filetype));
 //        basename($_FILES["id-photo"]["name"]))
         $uploadOk = 1;
         $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);

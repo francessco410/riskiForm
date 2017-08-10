@@ -29,7 +29,9 @@ class StudentDAL {
         $params[':person_booking_id'] = $e->person_booking_id;
         
         $res = $db -> query($query, $params);
-        
-        return($res);
+        if($res){
+            return true;     
+        }
+        return(false);
     }
 }

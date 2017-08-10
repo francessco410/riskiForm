@@ -43,13 +43,13 @@ class formController {
         $flag_person = $person->validation();
         $flag_student = $student->validation();
         
-        if($flag_person !== 0 || $flag_student !== 0 || !$Image_errors){
+        if($flag_person !== 0 || $flag_student !== 0 || $Image_errors){
             
         }else{
             $flag = $person->save();
             if($flag){
               $student->person_booking_id = $person->id;
-              $student->save();
+              $flag = $student->save();
             }
         
 
@@ -88,6 +88,6 @@ class formController {
             }
         }
         
-        return true;
+        return $flag;
     }
 }
