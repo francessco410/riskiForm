@@ -14,7 +14,7 @@ require_once dirname(__FILE__).'/../DAL/StudentDAL.php';
 
 class Student {
     public $course;
-    public $home_univeristy;
+    public $home_university;
     public $arrival_date;
     public $months;
     public $room_type;

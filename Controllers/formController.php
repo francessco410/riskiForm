@@ -1,16 +1,44 @@
 <?php
+//require_once dirname(__FILE__).'/PHPMailerAutoload.php';
+require_once dirname(__FILE__).'/../BL/Person.php';
+require_once dirname(__FILE__).'/../BL/Student.php';
 
-require 'PHPMailerAutoload.php';
 /**
  * Description of fromValid
  *
  * @author marcinwlodarczyk
  */
-class fromValid {
+class formController {
     
     public static function valid(){
+        $person = new Person();
+        $student = new Student();
         
+        if(isset($_POST['riski-form-submit'])){
+            $person->name = htmlspecialchars($_POST['name']);
+            $person->surname = htmlspecialchars($_POST['surname']);
+            $person->email = htmlspecialchars($_POST['email']);
+            $person->sex = htmlspecialchars($_POST['sex']);
+            $person->country = htmlspecialchars($_POST['country']);
+            $person->smoker = htmlspecialchars($_POST['smoker']);
+            $person->photo = '';
 
+            $student->course = htmlspecialchars($_POST['course']);
+            $student->home_university = htmlspecialchars($_POST['home_univeristy']);
+            $student->arrival_date = htmlspecialchars($_POST['date']);
+            $student->months = htmlspecialchars($_POST['months']);
+            $student->room_type = htmlspecialchars($_POST['room_type']);
+            $student->kit = htmlspecialchars($_POST['kit']);
+            $student->date = date('y-m-d');
+            $student->comment = htmlspecialchars($_POST['comment']);
+        }
+        echo '<pre>';
+        print_r($person);
+        echo '</pre>';
+        die();
+        
+        
+        
         $mail = new PHPMailer;
 
         //$mail->SMTPDebug = 3;                               // Enable verbose debug output

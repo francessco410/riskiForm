@@ -11,7 +11,7 @@
  *
  * @author marcinwlodarczyk
  */
-class Person {
+class PersonDAL {
     public static function save($e){
         $db = DB::getDB();
         $query = "INSERT INTO person_booking (name,surname,email,sex,country,smoker,photo) VALUES(:course,:home_univeristy,:months,:room_type,:kit,:comment,:date)";
